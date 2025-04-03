@@ -7,12 +7,12 @@ int x;
 
 do
 {
-printf(" Введите номер лабы ");
+printf("Введите номер лабы\n");
 scanf ("%d",&x);
 switch(x)
 {
 case 1:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -25,7 +25,7 @@ lab1d();
 break;
 
 case 2:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -38,7 +38,7 @@ lab2d();
 break;
 
 case 3:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -51,7 +51,7 @@ printf("Доп задания нет");
 break;
 
 case 4:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -64,7 +64,7 @@ lab4d();
 break;
 
 case 5:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -77,7 +77,7 @@ lab5d();
 break;
 
 case 6:
-printf("Основное(O) или доп задание(D)");
+printf("Основное(O) или доп задание(D)\n");
 scanf("%d",&d);
 if(d=getchar()=='O')
 {
@@ -90,7 +90,7 @@ lab6d();
 break;
 
 default:
-printf("Такой лабы нет");
+printf("Такой лабы нет\n");
 }
 } while(x>=1 && x<=6);
 return 0;
