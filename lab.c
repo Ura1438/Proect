@@ -134,6 +134,65 @@ printf("Yes\n");
 void lab4()
 {
 printf("Тема лабы");
+#define YES 1
+#define NO 0
+#define MAXLINE 1000
+
+void process_line(char buffer[]);
+
+int main()
+{
+    char line[MAXLINE];
+
+    fgets(line, MAXLINE, stdin);
+    process_line(line);
+    puts(line);
+    return 0;
+}
+
+void process_line(char buffer[]);
+{
+    char c, buffer[MAXLINE];
+    int prev_c, flag, found, i, pos, start, j;
+
+    flag=NO;
+    found=NO;
+    prev_c=' ';
+    start=0;
+    i=0;
+    pos=0;
+
+    do
+    {
+        c=buffer[i];
+        if(c==' '||c=='.'||c=='\n'||c==','||c=='\0')
+        {
+            if(flag==YES)
+            {
+                if(found==NO)
+                {
+                    for(j=start; j<i; j++)
+                        buffer[pos++]=buffer[j];
+                }
+            }
+            flag=NO;
+            buffer[pos++]=c;
+        }
+        else
+        {
+            if(flag==NO)
+                start=i;
+            if(c>='0'&&c<='9')
+                found=YES;
+            else
+            {
+                found=NO;
+                flag=YES;
+            }
+        }
+        i++;
+    } while(c!=EOF);
+}
 }
 void lab4d()
 {
