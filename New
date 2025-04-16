@@ -198,6 +198,40 @@ void lab4d()
 void lab5()
 {
     printf("Тема лабы");
+#define N 10
+
+    int x[N];
+    int sr_even;
+    int sr_odd;
+    int i;
+
+    sr_even=0;
+    sr_odd=0;
+
+    for(i=0; i<N; i++)
+    {
+        scanf("%d",&x[i]);
+        if(i%2==0)
+            sr_even=sr_even+x[i];
+        else
+            sr_odd=sr_odd+x[i];
+    }
+    if(sr_even>sr_odd)
+    {
+        for(i=1; i<N; i=i+2)
+        {
+            x[i]=0;
+        }
+    }
+    else
+    {
+        for(i=0; i<N; i=i+2)
+        {
+            x[i]=0;
+        }
+    }
+    for (i=0; i<N; i++)
+        printf("%d ",x[i]);
 }
 void lab5d()
 {
