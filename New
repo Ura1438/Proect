@@ -135,12 +135,7 @@ void process_line(char buffer[]);
 void lab4()
 {
     printf("В символьной строке удалить все числа\n");
-#define YES 1
-#define NO 0
-#define MAXLINE 1000
-
     char line[MAXLINE];
-
     fgets(line, MAXLINE, stdin);
     process_line(line);
     puts(line);
@@ -160,7 +155,6 @@ void process_line(char buffer[])
 
     do
     {
-        while (getchar()!='\n'&&getchar()!=EOF);
         c=buffer[i];
         if(c==' '||c=='.'||c=='\n'||c==','||c=='\0')
         {
@@ -188,7 +182,7 @@ void process_line(char buffer[])
             }
         }
         i++;
-    } while(c!=EOF);
+    }while(getchar()!='\n');
 }
 void lab4d()
 {
@@ -198,7 +192,7 @@ void lab4d()
 void lab5()
 {
     printf("В массиве из 10 целых чисел сосчитать сумму четных и нечетных элементов. Обнулить элементы, чья сумма меньше.\n");
-#define N 10
+
 
     int x[N];
     int sr_even;
@@ -232,6 +226,7 @@ void lab5()
     }
     for (i=0; i<N; i++)
         printf("%d ",x[i]);
+        printf("\n");
 }
 void lab5d()
 {
