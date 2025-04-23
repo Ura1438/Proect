@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define K 3
+#define N 4
+
+int main() {
+    int x[K][N];
+    int j, i, pos, aver, stroka, sr_stroka;
+
+    // Заполнение массива случайными числами (0-999)
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            x[i][j] = rand() % 1000;
+        }
+    }
+
+    // Вывод исходного массива
+    printf("Исходный массив %dx%d:\n", K, N);
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%4d", x[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Вычисление общего среднего массива
+    aver = 0;
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            aver += x[i][j]; // Исправлено: x[i][j] вместо x[j][i]
+        }
+    }
+    aver = aver / (K * N);
+
+    // Вычисление среднего для каждой строки и обнуление, если нужно
+    for (i = 0; i < K; i++) {
+        stroka = 0;
+        for (j = 0; j < N; j++) {
+            stroka += x[i][j];
+        }
+        sr_stroka=stroka/N;
+        // Обнуление строки, если её среднее меньше общего
+        if (sr_stroka < aver) {
+            for (j = 0; j < N; j++) {
+                x[i][j] = 0;
+            }
+        }
+    }
+    printf("Итоговый массив:\n");
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%4d", x[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
