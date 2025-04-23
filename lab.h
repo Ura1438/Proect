@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include<stdlib.h>
 
 void lab1();
 void lab1d();
