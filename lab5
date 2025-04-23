@@ -39,3 +39,71 @@ void lab5()
         printf("%d \n",x[i]);
         printf("\n");
 }
+
+
+
+
+
+ДОПОЛНИТЕЛЬНО (ПУЗЫРЬКОМ)
+
+#include<stdio.h>
+#include<stdlib.h>
+#define N 10
+
+int main()
+{
+    printf("В массиве из 10 целых чисел сосчитать сумму четных и нечетных элементов. Обнулить элементы, чья сумма меньше.\n");
+
+    int x[N];
+    int sr_even;
+    int sr_odd;
+    int i,k,m,pm;
+
+    sr_even = 0;
+    sr_odd = 0;
+    printf("Изначальный массив:\n");
+    for(i = 0; i < N; i++)
+    {
+        x[i] = rand() % 1000;
+        printf("%d\n", x[i]);
+    }
+    for (k = 0; k < N - 1; k++) {
+        for (m = 0; m < N - k - 1; m++) {
+            if (x[m] > x[m + 1]) {
+                pm = x[m];
+                x[m] = x[m + 1];
+                x[m + 1] = pm;
+            }
+        }
+    }
+    printf("\nОтсортированный:\n");
+    for(i = 0; i < N; i++)
+    {
+        printf("%d\n", x[i]);
+    }
+    for(i = 0; i < N; i++) {
+        if(i % 2 == 0)
+            sr_even += x[i];
+        else
+            sr_odd += x[i];
+    }
+    if(sr_even > sr_odd)
+    {
+        for(i = 1; i < N; i = i + 2)
+        {
+            x[i] = 0;
+        }
+    }
+    else
+    {
+        for(i = 0; i < N; i = i + 2)
+        {
+            x[i] = 0;
+        }
+    }
+    printf("\nИтог:\n");
+    for (i = 0; i < N; i++)
+        printf("%d \n", x[i]);
+    printf("\n");
+    return 0;
+}
