@@ -324,6 +324,79 @@ void lab6()
 }
 void lab6d()
 {
-    printf("Тема лабы");
-    printf("Задание");
+    printf("В двумерном массиве обнулять строки, среднее арифметическое которых меньше среднего массива\n");
+    printf("Транспонировать массив\n");
+    int y[M][M],x[M][M], j, i, pos, aver, stroka, sr_stroka;
+
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+            x[i][j]=rand()%100;
+        }
+    }
+    //Вывод исходного массива
+    printf("Исходный массив %dx%d:\n", K, M);
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+            printf("%4d", x[i][j]);
+        }
+        printf("\n");
+    }
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+            y[i][j]=x[j][i];
+        }
+    }
+    printf("Транспонированный массив:\n");
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+          printf("%4d", y[i][j]);  
+        }
+        printf("\n");
+    }
+    //Вычисление общего среднего массива
+    aver=0;
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+            aver+=y[i][j];
+        }
+    }
+    aver=aver/(M*M);
+    //Вычисление среднего для строки
+    for(i = 0; i < M; i++)
+    {
+        stroka=0;
+        for(j = 0; j < M; j++)
+        {
+            stroka+=y[i][j];
+        }
+        sr_stroka=stroka/M;
+        //Обнуление строки, если её среднее меньше общего
+        if(sr_stroka < aver)
+        {
+            for(j = 0; j < M; j++)
+            {
+                y[i][j]=0;
+            }
+        }
+    }
+    //Вывод итогового массива
+    printf("\nИтоговый массив:\n");
+    for(i = 0; i < M; i++)
+    {
+        for(j = 0; j < M; j++)
+        {
+            printf("%4d", y[i][j]);
+        }
+        printf("\n");
+    }
 }
