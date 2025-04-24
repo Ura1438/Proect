@@ -263,8 +263,6 @@ void lab5d()
 void lab6()
 {
     printf("В двумерном массиве обнулять строки, среднее арифметическое которых меньше среднего массива\n");
-    #define K 3
-    #define M 4
 
     int x[K][M], j, i, pos, aver, stroka, sr_stroka;
 
