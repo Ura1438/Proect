@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include<stdlib.h>
+#define N 10
+#define MAXLINE 1000
 
 void lab1();
 void lab1d();
