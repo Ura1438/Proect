@@ -3,6 +3,8 @@
 #include<stdlib.h>
 #define N 10
 #define MAXLINE 1000
+#define K 3
+#define M 4
 
 void lab1();
 void lab1d();
